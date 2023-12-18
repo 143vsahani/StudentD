@@ -1,0 +1,13 @@
+
+<h1>Welcome, <%= @user.email %></h1>
+  
+<% if @user.student? %>
+  <p>School: <%= @user.school.name %></p>
+  <p>Class: <%= @user.class.name %></p>
+  <p>Teacher: <%= @user.teacher.name %></p>
+<% elsif @user.teacher? %>
+   <p>School: <%= @user.school.name %></p>
+  <p>Class: <%= @user.class.name %></p>
+  <p>Student: <%= @user.student.name %></p>
+  
+<% end %>
