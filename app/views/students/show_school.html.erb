@@ -1,0 +1,98 @@
+<!-- app/views/students/show_class.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    td {
+      background-color: #f9f9f9;
+    }
+
+    td.actions {
+      display: flex;
+      gap: 5px;
+    }
+
+    a.button {
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      color: #007bff;
+    }
+
+    a.button:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+  <title>School Information</title>
+</head>
+<body>
+
+  <h1>School Information</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>School Name</th>
+        <th>Board</th>
+        <th>Principal Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schools.each do |school| %>
+        <tr>
+          <td><%= school.school_name %></td>
+          <td><%= school.board %></td>
+          <td><%= school.principal_name %></td>
+          <td class="actions">
+            <%= link_to 'Show', sclass_path(school), class: 'button' %>
+            <%= link_to 'Edit', edit_sclass_path(school), class: 'button' %>
+            <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'New Student', new_school_path, class: 'button' %>
+  <%= link_to 'Back to Students', students_path, class: 'button' %>
+
+</body>
+</html>

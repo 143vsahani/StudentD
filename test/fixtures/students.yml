@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  rollNumber: 1
+  studentClass: MyString
+  fatherName: MyString
+  sclass: one
+  teacher: one
+
+two:
+  name: MyString
+  email: MyString
+  rollNumber: 1
+  studentClass: MyString
+  fatherName: MyString
+  sclass: two
+  teacher: two
