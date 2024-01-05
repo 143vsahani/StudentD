@@ -1,4 +1,4 @@
-<%= form_with(model: @sclass, local: true) do |form| %>
+<%= form_with(model: @sclasses, local: true) do |form| %>
   <% if @sclass.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sclass.errors.count, "error") %> prohibited this class from being saved:</h2>
@@ -10,10 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :classNumber %>
+    <%= form.text_field :classNumber %>
+  </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= form.label :division %>
+    <%= form.text_field :division %>
   </div>
 
   <div class="actions">

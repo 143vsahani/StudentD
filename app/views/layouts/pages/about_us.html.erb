@@ -1,0 +1,51 @@
+<!-- app/views/about_us.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', media: 'all' %>
+  <!-- Add any additional stylesheets or scripts if needed -->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <%= link_to 'Student Dashboard', students_path, class: 'navbar-brand' %>
+    <!-- Add other navigation links if needed -->
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="mb-4">About Us</h1>
+
+  <p>
+    Welcome to our Student Dashboard! We are dedicated to providing a seamless and efficient experience for managing student information. Our platform is designed to meet the needs of schools, teachers, and students alike.
+  </p>
+
+  <p>
+    Feel free to explore the various features and functionalities offered by our Student Dashboard. If you have any questions or feedback, please don't hesitate to contact us.
+  </p>
+
+  <p>
+    Thank you for choosing our Student Dashboard for your educational needs.
+  </p>
+
+  <!-- Add more content about your platform as needed -->
+
+  <div class="links">
+    <%= link_to 'Class', show_class_students_path, class: 'btn btn-primary' %>
+    <%= link_to 'School', show_school_students_path, class: 'btn btn-primary' %>
+    <%= link_to 'Teacher', show_teacher_students_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<footer>
+  &copy; 2023 Your School Name
+</footer>
+
+<button class="btn btn-danger sign-out">Sign Out</button>
+
+</body>
+</html>

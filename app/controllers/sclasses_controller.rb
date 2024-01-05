@@ -6,6 +6,8 @@ class SclassesController < ApplicationController
   end
 
   def show
+    @sclass = Sclass.find(param[:id])
+  
   end
 
   def new
@@ -14,11 +16,13 @@ class SclassesController < ApplicationController
 
   def create
     @sclass = Sclass.new(sclass_params)
-
+  
     if @sclass.save
-      redirect_to sclasses_path, notice: 'Class was successfully created.'
+      # Handle successful save
+      puts "save"
     else
-      render :new
+      # Handle validation errors
+      puts "errors"
     end
   end
 
@@ -45,6 +49,6 @@ class SclassesController < ApplicationController
   end
 
   def sclass_params
-    params.require(:sclass).permit(:name)
+    params.require(:sclass).permit(:classNumber,:department, :division, :school_id, :assignments)
   end
 end

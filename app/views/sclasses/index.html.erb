@@ -1,14 +1,29 @@
 <h1>Classes</h1>
 
-<ul>
-  <% @sclasses.each do |sclass| %>
-    <li>
-      <%= link_to sclass.name, sclass_path(sclass) %> |
-      <%= link_to 'Edit', edit_sclass_path(sclass) %> |
-      <%= link_to 'Delete', sclass, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Class Number</th>
+      <th>Division</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
-<%= link_to 'New Class', new_sclass_path %>
+  <tbody>
+    <% @sclasses.each do |sclass| %>
+      <tr>
+        <td><%= sclass.classNumber %></td>
+        <td><%= sclass.division %></td>
+        <td><%= sclass.department %></td>
+        <td>
+          
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= link_to 'Back to Students', students_path %>

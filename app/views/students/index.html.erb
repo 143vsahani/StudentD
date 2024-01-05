@@ -1,25 +1,16 @@
-<!-- app/views/students/index.html.erb -->
+<!-- app/views/students/show_class.html.erb -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <title>Classes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
@@ -31,6 +22,8 @@
       width: 100%;
       margin-top: 20px;
       border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     th, td {
@@ -48,81 +41,103 @@
       background-color: #f9f9f9;
     }
 
-    .actions {
+    td.actions {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
+      gap: 5px;
     }
 
-    .actions a {
+    a.button {
       text-decoration: none;
-      color: #007bff;
       padding: 5px 10px;
       border: 1px solid #007bff;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-    }
-
-    .actions a:hover {
-      background-color: #007bff;
-      color: #fff;
-    }
-
-    .links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .links a {
-      text-decoration: none;
       color: #007bff;
-      padding: 10px 20px;
-      border: 1px solid #007bff;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
 
-    .links a:hover {
+    a.button:hover {
       background-color: #007bff;
       color: #fff;
     }
   </style>
 </head>
-<body>
 
-<div class="container">
-  <h1>Student Dashboard</h1>
+<body>
 
   <table>
     <thead>
-      <tr>
-        <th>Name</th>
-        <th>Class</th>
-        <th colspan="3">Actions</th>
-      </tr>
+      
+        
+          <div class="card" style="width: 13rem; margin: 15px;">
+            <%= image_tag "g2.png"%>
+            <div class="card-body">
+              <a href="#" class= "btn btn-primary">Name</a>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 13rem; margin: 15px;">
+            <%= image_tag "e1.jpg"%>
+            <div class="card-body">
+              <a href="#" class= "btn btn-primary">Email</a>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 13rem; margin: 15px;">
+            <%= image_tag "d1.jpg"%>
+            <div class="card-body">
+              <a href="#" class= "btn btn-primary">RollNumber</a>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 13rem; margin: 15px;">
+            <%= image_tag "d2.jpg"%>
+            <div class="card-body">
+              <a href="#" class= "btn btn-primary">Class</a>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+
+    <div class="card" style="width: 13rem; margin: 20px;">
+    <%= image_tag "d1.jpg" %>
+    <div class="card-body">
+      <a href="#" class="btn btn-primary">FatherName</a>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      
+    </div>
+  </div>
+
+        
+      
     </thead>
 
     <tbody>
       <% @students.each do |student| %>
         <tr>
           <td><%= student.name %></td>
-          <td><%= student.class.name %></td>
-          <td class="actions"><%= link_to 'Show', student %></td>
-          <td class="actions"><%= link_to 'Edit', edit_student_path(student) %></td>
-          <td class="actions"><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= student.email %></td>
+          <td><%= student.rollNumber %></td>
+          <td><%= student.studentClass %></td>
+          <td><%= student.fatherName %></td>
+
+          
+
+          
+
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <div class="links">
-    <%= link_to 'New Student', new_student_path %>
-    <%= link_to 'Show Class', show_class_students_path %>
-    <%= link_to 'Show School', show_school_students_path %>
-    <%= link_to 'Show Teacher', show_teacher_students_path %>
-  </div>
-</div>
+  <!-- Add a new card for FatherName below the table -->
+  
+
+  <%= image_tag('s1.png', alt: 'School Logo', height: '700', width: '100%') %>
 
 </body>
 </html>

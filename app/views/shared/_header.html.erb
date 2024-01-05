@@ -1,0 +1,159 @@
+<div class="header_inner">
+  <div class="clr"></div>
+</div>
+
+<nav class="navbar navbar-expand-lg  bg-primary">
+  <div class="container-fluid">
+    <%= link_to image_tag('school_logo.png', alt: 'School Logo', height: '100'), students_path, class: 'navbar-brand' %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+        <%= link_to 'Class', show_class_students_path, class: 'nav-link' %>
+      </li>
+        <li class="nav-item">
+        <%= link_to 'School', show_school_students_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Teacher', show_teacher_students_path, class: 'nav-link' %>
+      </li>
+        <li class="nav-item">
+          <%= link_to 'About us', students_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact us', students_path, class: 'nav-link' %>
+        </li>
+        <% if user_signed_in? %>
+          <% if current_user.student? %>
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Class: <%= current_user.class.name %></a>
+            </li>
+            <li class="nav-item">
+            </li>
+          <% elsif current_user.teacher? %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Class: <%= current_user.class.name %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My School: <%= current_user.school.name %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Students</a>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to 'Sign Out', destroy_user_session_path, data: { "turbo-method": :delete }, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <%# <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
+          <%# </li> %>
+          <li class="nav-item">
+            <%= link_to 'Sign Out', new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<style>
+body {
+            margin: 0;
+            font-family: 'Crimson Text', serif;
+        }
+        .navbar {
+            background: #192541;
+            padding: 10px 0;
+            color: #fff;
+          background: #192541;
+              height: 119px;
+            text-align: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            font-size: 21px;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+        .header {
+    width: 100%;
+    position: fixed;
+    background: #fff;
+    z-index: 111;
+}
+.header_inner {
+    width: 1000px;
+    padding: 10px 0 0;
+    margin: 0 auto;
+}
+.logo{
+    text-align: center;
+    outline: 0;
+  border: none;
+}
+img {
+    vertical-align: middle;
+}
+.eportal {
+    font-size: 11px;
+    margin: -45px 0px 0 0;
+    font-family: 'Crimson Text';
+    float: right;
+    font-style: normal;
+    font-weight: 400;
+}
+.bluebtn a, .bluebtn1 a, .eportal a, .navigation ul li a, .subbtn {
+    display: inline-block;
+}
+.title a, a {
+    text-decoration: none;
+}
+a, img, input, input:focus, textarea:focus {
+    outline: 0;
+}
+.column {
+    float: left;
+    width: 200px;
+    padding: 0;
+    margin: -32px 0 0 15px;
+}
+.column, .imgthumb1 a, .mobsearch, .sb-search-input {
+    position: absolute;
+}
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+.sb-search.sb-search-open {
+    width: 100%;
+}
+.sb-search-input {
+    top: 0;
+    right: 0;
+    border: none;
+    outline: 0;
+    background: #F1F1F2;
+    width: 78%;
+    margin: 0;
+    z-index: 10;
+    padding: 5px 38px 5px 10px;
+    font-size: 14px;
+    color: #999;
+}
+input, input:focus, textarea:focus {
+    outline: 0;
+}
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+</style>

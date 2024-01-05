@@ -1,0 +1,96 @@
+<!-- app/views/students/show_class.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .card {
+      width: 18rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    a.btn.btn-primary {
+      background-color: white; /* Change to white */
+      border-color: white; /* Change to white */
+      color: #007bff;
+    }
+
+    a.btn.btn-primary:hover {
+      background-color: white; /* Change to white */
+      color: #007bff;
+    }
+  </style>
+  <title>Teacher Information</title>
+</head>
+<body>
+
+  <h1>Teacher Information</h1>
+
+  <!-- ... Your existing code ... -->
+
+  <div class="card">
+    <%= image_tag "akh.jpg"%>
+    <div class="card-body">
+      <a href="#" class="btn btn-primary">Name</a>
+      <p class="card-text"> A teacher is in charge of developing lesson plans and training students in accordance with the curriculum. Their duties include training the students on a variety of subjects, distributing assignments, evaluating examinations, and keeping track of student progress</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <%= image_tag "e1.jpg"%>
+    <div class="card-body">
+      <a href="#" class="btn btn-primary">Email</a>
+      <p class="card-text"> Electronic mail, commonly shortened to “email,” is a communication method that uses electronic devices to deliver messages across computer networks. "Email" refers to both the delivery system and individual messages that are sent and received. </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <%= image_tag "m1.jpg"%>
+    <div class="card-body">
+      <a href="#" class="btn btn-primary">Contact Number</a>
+      <p class="card-text">SUPPORT DESK: In case of any clarification pertaining to E-Procurement Process, the vendor may contact ETL on Contact Numbers and E-Mail Ids, as appended below.up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <table>
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.name %></td>
+          <td><%= teacher.email %></td>
+          <td><%= teacher.contactNumber %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= image_tag('sch1.jpg', alt: 'School Logo', height: '700', width: '100%') %>
+
+  
+  <%= link_to 'Back to Students', students_path, class: 'btn btn-primary' %>
+
+</body>
+</html>

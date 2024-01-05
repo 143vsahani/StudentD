@@ -7,6 +7,7 @@ class CreateStudents < ActiveRecord::Migration[7.1]
       t.string :studentClass
       t.string :fatherName
       t.references :sclass, null: false, foreign_key: true
+      
 
       t.timestamps
     end

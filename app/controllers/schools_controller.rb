@@ -6,6 +6,7 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    @school = School.find(params[:id])
   end
 
   def new
@@ -34,9 +35,21 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-    @school.destroy
-    redirect_to schools_path, notice: 'School was successfully destroyed.'
+    @school = School.find_by(id: params[:id])
+    if @school.present?
+      @school.destroy
+      redirect_to schools_path, notice: 'School was successfully destroyed.'
+    end
+    # redirect_to schools_path, notice: 'School was successfully destroyed.'
   end
+
+  # def destroy
+  #   @product = Product.find_by(id: params[:id])
+  #     if @product.present?
+  #       @product.destroy
+  #       redirect_to root_path, notice: ' Confirmed Successfully'
+  #     end
+  # end
 
   private
 
@@ -45,6 +58,6 @@ class SchoolsController < ApplicationController
   end
 
   def school_params
-    params.require(:school).permit(:name, :location)
+    params.require(:school).permit(:board, :schoolName, :principalName)
   end
 end

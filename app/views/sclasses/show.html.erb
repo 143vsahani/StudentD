@@ -1,6 +1,12 @@
 <h1>Class Details</h1>
 
-<p><strong>Name:</strong> <%= @sclass.name %></p>
+<p><strong>Class Number:</strong> <%= @sclass.classNumber %></p>
+<p><strong>Department:</strong> <%= @sclass.department %></p>
+<p><strong>Division:</strong> <%= @sclass.division %></p>
+
+<!-- app/views/sclasses/show.html.erb -->
+<%= link_to 'Download Assignment', assignments_sclass_path(@sclass) if @sclass.assignments.present? %>
+
 
 <%= link_to 'Edit', edit_sclass_path(@sclass) %> |
 <%= link_to 'Back to Classes', sclasses_path %>

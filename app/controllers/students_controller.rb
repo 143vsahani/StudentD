@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @student = Student.find(params[:id])
   end
 
   def new
@@ -39,7 +40,7 @@ class StudentsController < ApplicationController
   end
 
   def show_class
-    @classes = Sclass.all
+    @sclasses = Sclass.all
   # Ensure that the view is rendered
   render 'show_class'
   end
@@ -52,6 +53,13 @@ class StudentsController < ApplicationController
 
   def show_teacher
     @teachers = Teacher.all
+    render 'show_teacher'
+  end
+
+  def show_assignment
+    @assignment = Assignment.all
+    render 'show_assignment'
+    
   end
 
   private
@@ -61,6 +69,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:name, :class_id)
+    params.require(:student).permit(:name, :email, :rollNumber, :studentClass, :fatherName, :sclass_id)
   end
 end
